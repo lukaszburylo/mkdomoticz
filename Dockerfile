@@ -37,7 +37,7 @@ RUN \
 git clone https://github.com/domoticz/domoticz.git /src/domoticz && \
 # Domoticz needs the full history to be able to calculate the version string
 cd /src/domoticz && \
-git fetch --unshallow && \
+#git fetch --unshallow && \
 # reset to stable version
 git reset --hard 494fff7 && \
 # prepare makefile
