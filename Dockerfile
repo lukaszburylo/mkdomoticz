@@ -17,7 +17,6 @@ RUN apt-get update && apt-get install -y \
 	libudev-dev \
 	python3-dev python3-pip \
         fail2ban && \
-        wget && \
     # linux-headers-generic
 
 ## OpenZwave installation
