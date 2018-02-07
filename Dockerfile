@@ -16,9 +16,11 @@ RUN apt-get update && apt-get install -y \
 	zlib1g-dev \
 	libudev-dev \
 	python3-dev python3-pip \
-        fail2ban && \
+        fail2ban 
     # linux-headers-generic
 
+
+RUN \
 ## OpenZwave installation
 # grep git version of openzwave
 git clone --depth 2 https://github.com/OpenZWave/open-zwave.git /src/open-zwave && \
@@ -27,8 +29,9 @@ cd /src/open-zwave && \
 make && \
 
 # "install" in order to be found by domoticz
-ln -s /src/open-zwave /src/open-zwave-read-only && \
+ln -s /src/open-zwave /src/open-zwave-read-only
 
+RUN \
 ## Domoticz installation
 # clone git source in src
 git clone https://github.com/domoticz/domoticz.git /src/domoticz && \
@@ -44,10 +47,11 @@ cmake -DCMAKE_BUILD_TYPE=Release . && \
 make && \
 # Install
 # install -m 0555 domoticz /usr/local/bin/domoticz && \
-cd /tmp && \
+cd /tmp 
 # Cleanup
 # rm -Rf /src/domoticz && \
 
+RUN \
 # ouimeaux
 pip3 install -U ouimeaux && \
 
